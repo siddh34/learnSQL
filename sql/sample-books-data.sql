@@ -1,4 +1,3 @@
--- Adding more books
 INSERT INTO Books (Title, Author, PublishedYear, Genre) VALUES
 ('The Great Gatsby', 'F. Scott Fitzgerald', 1925, 'Fiction'),
 ('To Kill a Mockingbird', 'Harper Lee', 1960, 'Classic'),
