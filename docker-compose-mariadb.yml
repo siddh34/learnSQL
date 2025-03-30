@@ -15,6 +15,19 @@ services:
       MARIADB_DATABASE: sample
       MARIADB_PORT_NUMBER: 3306
 
+  oracle-db:
+    image: container-registry.oracle.com/database/free:23.7.0.0-lite
+    container_name: oracle-db
+    restart: always
+    ports:
+      - "1521:1521"
+    environment:
+      - ORACLE_PWD=YourPassword123
+    volumes:
+      - oracle-db:/opt/oracle/oradata:rw
+    networks:
+      - db
+
   adminer:
     image: adminer
     restart: always
@@ -28,4 +41,5 @@ networks:
     driver: bridge
 
 volumes:
-  mariadb_data:
+  mariadb:
+  oracle-db:
