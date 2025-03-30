@@ -28,6 +28,20 @@ services:
     networks:
       - db
 
+  postgres-db:
+    image: postgres:17
+    restart: always
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./postgres:/var/lib/postgresql/data:rw
+    networks:
+      - db
+    environment:
+      POSTGRES_USER: sample-user
+      POSTGRES_PASSWORD: sample-password
+      POSTGRES_DB: sample
+
   adminer:
     image: adminer
     restart: always
@@ -43,3 +57,4 @@ networks:
 volumes:
   mariadb:
   oracle-db:
+  postgres:
